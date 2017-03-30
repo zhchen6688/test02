@@ -1,17 +1,20 @@
 *** Keywords ***
-open
-    Open Browser    ${url}    firefox
-
 username
+    [Arguments]    ${username}
     Input Text    name=username    ${username}
 
 password
+    [Arguments]    ${password}
     input text    name=password    ${password}
 
 login
-    Click Element    xpath=//*[@id='app-container']/div/button
+    Click Element    xpath=//*[@id='app-container']/div/button
 
 verify
 
 close
     Close Browser
+
+open
+    [Arguments]    ${url}
+    Open Browser    ${url}

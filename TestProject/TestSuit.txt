@@ -1,5 +1,4 @@
 *** Settings ***
-Library           Selenium2Library
 Resource          source1.txt
 
 *** Test Cases ***
@@ -28,8 +27,8 @@ test case4
     \    Exit For Loop If    '${i}' == 'c'
     log    ${i}
 
-case5
-    open    http://dev.gtzh.51ijk.com
+case5_gtzh
+    open    https://dev.gtzh.51ijk.com/user/login
     username    gtzh
     password    123123
     login
@@ -37,3 +36,10 @@ case5
 
 case6
     Open Browser    https://dev.gtzh.51ijk.com/user/login    ff
+    Click Element    css=#app-container > div > div:nth-child(2) > input[type="text"]
+    Input Text    name=username    gtzh
+    Click Element    css=#app-container > div > div:nth-child(3) > input[type="password"]
+    Input Text    name=password    123123
+    Click button    css=btn.btn-default
+
+*** Keywords ***
