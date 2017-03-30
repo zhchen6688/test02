@@ -1,0 +1,39 @@
+*** Settings ***
+Library           Selenium2Library
+Resource          source1.txt
+
+*** Test Cases ***
+test case1
+    @{abc}    create list    a    b    c
+    : FOR    ${i}    IN    @{abc}
+    \    Exit For Loop If    '${i}' == 'c'
+    log    ${i}
+
+test case2
+    ${a}    Set variable    89
+    run keyword if    ${a} >=90    log    优秀
+    ...    ELSE IF    ${a} <=70    log    良好
+    ...    ELSE IF    ${a} <=60    log    及格
+    ...    ELSE    log    不及格
+
+test case3
+    @{abc}    create list    a    b    C
+    : FOR    ${var}    IN    @{abc}
+    \    Exit For Loop If    '${var}' == 'C'
+    log    ${var}
+
+test case4
+    @{abc}    create list    a    b    c
+    : FOR    ${i}    IN    @{abc}
+    \    Exit For Loop If    '${i}' == 'c'
+    log    ${i}
+
+case5
+    open    http://dev.gtzh.51ijk.com
+    username    gtzh
+    password    123123
+    login
+    close
+
+case6
+    Open Browser    https://dev.gtzh.51ijk.com/user/login    ff
