@@ -42,3 +42,10 @@ temp1
    log   ${CURDIR}
    evaluate   os.system('python /Users/barry/Downloads/role.py')   os
 
+插入角色
+    # Import Library    datetime
+    ${DATE}   Evaluate    datetime.datetime.utcnow()   datetime
+    Log    ${DATE}
+    Connect To Mongodb    mongodb://paperKingDevelopingByiHealth:d3Wrg40dE@120.131.8.26/paper-king-developing   27017
+    Save Mongodb Records    paper-king-developing    userAdmin    {"roleName" : "Test001","caseRecord" : 1,"clinicalLabResults" : 3,"appointment" : 1,"nutritionAt" : 3,"insulinAt" : 1,"footAt" : 1,"quantizationAt" : 1,"soap" : 3,"superAdmin" : 0,"updateAt" : "${DATE}", "createAt" :"${DATE}","eyeground" : 3}
+    Disconnect From Mongodb
