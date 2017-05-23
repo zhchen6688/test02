@@ -9,6 +9,8 @@
 *.pyc
 *.png
 *.log
+*.html
+output.xml
 /libspecs/
 /node_modules/
 /result/
