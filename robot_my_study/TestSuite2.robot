@@ -80,11 +80,11 @@ testcase5-List
 testcase6-invoking-python-file
    [Documentation]   调用外部test.py文件中的myadd函数
    comment   这是注释
-   import library   ${CURDIR}/test.py
+   # import library   ${CURDIR}/test.py
    ${a}   evaluate   int(4)
    ${b}   evaluate   int(5)
-   ${add}   myadd   ${a}   ${b}
-   log   ${add}
+   # ${add}   myadd   ${a}   ${b}
+   # log   ${add}
 
 testcase7-Dict
    [Documentation]   访问字典

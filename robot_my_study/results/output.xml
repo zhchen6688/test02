@@ -1,62 +1,56 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generated="20170512 16:26:50.909" generator="Robot 3.0.2 (Python 2.7.13 on darwin)">
-<suite source="/Users/barry/github/my/test02/robot_my_study" id="s1" name="Robot My Study">
-<suite source="/Users/barry/github/my/test02/robot_my_study/TestSuite1.robot" id="s1-s1" name="TestSuite1">
-<test id="s1-s1-t1" name="temp2">
-<kw name="Evaluate" library="BuiltIn">
-<doc>Evaluates the given expression in Python and returns the results.</doc>
+<robot generated="20170523 11:19:19.587" generator="Robot 3.0.2 (Python 2.7.13 on darwin)">
+<suite source="/Users/chen/GitHub/my/test02/robot_my_study" id="s1" name="Robot My Study">
+<suite source="/Users/chen/GitHub/my/test02/robot_my_study/TestSuite2.robot" id="s1-s1" name="TestSuite2">
+<test id="s1-s1-t1" name="testcase1-IF">
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
 <arguments>
-<arg>datetime.datetime.utcnow()</arg>
-<arg>datetime</arg>
+<arg>89</arg>
 </arguments>
 <assign>
-<var>${DATE}</var>
+<var>${a}</var>
 </assign>
-<msg timestamp="20170512 16:26:51.442" level="INFO">${DATE} = 2017-05-12 08:26:51.441457</msg>
-<status status="PASS" endtime="20170512 16:26:51.442" starttime="20170512 16:26:51.441"></status>
+<msg timestamp="20170523 11:19:19.619" level="INFO">${a} = 89</msg>
+<status status="PASS" endtime="20170523 11:19:19.619" starttime="20170523 11:19:19.619"></status>
 </kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>${a} &gt;=90</arg>
+<arg>log</arg>
+<arg>优秀</arg>
+<arg>ELSE IF</arg>
+<arg>${a} &lt;=70</arg>
+<arg>log</arg>
+<arg>良好</arg>
+<arg>ELSE IF</arg>
+<arg>${a} &lt;=60</arg>
+<arg>log</arg>
+<arg>及格</arg>
+<arg>ELSE</arg>
+<arg>log</arg>
+<arg>不及格</arg>
+</arguments>
 <kw name="Log" library="BuiltIn">
 <doc>Logs the given message with the given level.</doc>
 <arguments>
-<arg>${DATE}</arg>
+<arg>不及格</arg>
 </arguments>
-<msg timestamp="20170512 16:26:51.442" level="INFO">2017-05-12 08:26:51.441457</msg>
-<status status="PASS" endtime="20170512 16:26:51.442" starttime="20170512 16:26:51.442"></status>
+<msg timestamp="20170523 11:19:19.620" level="INFO">不及格</msg>
+<status status="PASS" endtime="20170523 11:19:19.620" starttime="20170523 11:19:19.620"></status>
 </kw>
-<kw name="Connect To Mongodb" library="MongoDBLibrary">
-<doc>Loads pymongo and connects to the MongoDB host using parameters submitted.</doc>
-<arguments>
-<arg>mongodb://paperKingDevelopingByiHealth:d3Wrg40dE@120.131.8.26/paper-king-developing</arg>
-<arg>27017</arg>
-</arguments>
-<msg timestamp="20170512 16:26:51.445" level="INFO">| Connect To MondoDB | dbHost | dbPort | dbMaxPoolSize | dbNetworktimeout | dbDocClass | dbTZAware |
-| Connect To MondoDB | mongodb://paperKingDevelopingByiHealth:d3Wrg40dE@120.131.8.26/paper-king-developing | 27017 | 10 | None | &lt;type 'dict'&gt; | False |</msg>
-<status status="PASS" endtime="20170512 16:26:51.445" starttime="20170512 16:26:51.442"></status>
+<status status="PASS" endtime="20170523 11:19:19.620" starttime="20170523 11:19:19.619"></status>
 </kw>
-<kw name="Save Mongodb Records" library="MongoDBLibrary">
-<doc>If to_save already has an "_id" then an update() (upsert) operation is</doc>
-<arguments>
-<arg>paper-king-developing</arg>
-<arg>userAdmin</arg>
-<arg>{"roleName" : "Test002","caseRecord" : 1,"clinicalLabResults" : 3,"appointment" : 1,"nutritionAt" : 3,"insulinAt" : 1,"footAt" : 1,"quantizationAt" : 1,"soap" : 3,"superAdmin" : 0,"updateAt" : "${DATE}", "createAt" :"${DATE}","eyeground" : 3}</arg>
-</arguments>
-<msg timestamp="20170512 16:26:51.506" level="INFO">| ${allResults} | Save MongoDB Records | paper-king-developing | userAdmin | {u'quantizationAt': 1, u'eyeground': 3, u'appointment': 1, u'caseRecord': 1, u'footAt': 1, u'clinicalLabResults': 3, u'createAt': u'2017-05-12 08:26:51.441457', u'nutritionAt': 3, u'roleName': u'Test002', u'insulinAt': 1, u'superAdmin': 0, '_id': ObjectId('591571cb421aa972208befb7'), u'updateAt': u'2017-05-12 08:26:51.441457', u'soap': 3} |</msg>
-<status status="PASS" endtime="20170512 16:26:51.506" starttime="20170512 16:26:51.446"></status>
-</kw>
-<kw name="Disconnect From Mongodb" library="MongoDBLibrary">
-<doc>Disconnects from the MongoDB server.</doc>
-<msg timestamp="20170512 16:26:51.506" level="INFO">| Disconnect From MongoDB |</msg>
-<status status="PASS" endtime="20170512 16:26:51.506" starttime="20170512 16:26:51.506"></status>
-</kw>
-<kw type="teardown" name="Close Browser" library="Selenium2Library">
-<doc>Closes the current browser.</doc>
-<status status="PASS" endtime="20170512 16:26:51.507" starttime="20170512 16:26:51.507"></status>
-</kw>
-<status status="PASS" endtime="20170512 16:26:51.507" critical="yes" starttime="20170512 16:26:51.440"></status>
+<doc>IF 语句</doc>
+<tags>
+<tag>ok</tag>
+</tags>
+<status status="PASS" endtime="20170523 11:19:19.621" critical="yes" starttime="20170523 11:19:19.618"></status>
 </test>
-<status status="PASS" endtime="20170512 16:26:51.508" starttime="20170512 16:26:50.952"></status>
+<status status="PASS" endtime="20170523 11:19:19.621" starttime="20170523 11:19:19.612"></status>
 </suite>
-<status status="PASS" endtime="20170512 16:26:51.509" starttime="20170512 16:26:50.912"></status>
+<status status="PASS" endtime="20170523 11:19:19.622" starttime="20170523 11:19:19.589"></status>
 </suite>
 <statistics>
 <total>
@@ -64,10 +58,11 @@
 <stat fail="0" pass="1">All Tests</stat>
 </total>
 <tag>
+<stat fail="0" pass="1">ok</stat>
 </tag>
 <suite>
 <stat fail="0" id="s1" name="Robot My Study" pass="1">Robot My Study</stat>
-<stat fail="0" id="s1-s1" name="TestSuite1" pass="1">Robot My Study.TestSuite1</stat>
+<stat fail="0" id="s1-s1" name="TestSuite2" pass="1">Robot My Study.TestSuite2</stat>
 </suite>
 </statistics>
 <errors>

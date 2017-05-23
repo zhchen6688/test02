@@ -1,6 +1,5 @@
 *** Settings ***
 Test Teardown    Close Browser
-Library          pymongo
 Library          MongoDBLibrary
 Library          Selenium2Library
 
@@ -39,7 +38,7 @@ Library          Selenium2Library
 
 temp1
    [Documentation]    权限
-   log   ${CURDIR}
+   # log   ${CURDIR}
    evaluate   os.system('python /Users/barry/Downloads/role.py')   os
 
 插入角色
