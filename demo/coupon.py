@@ -102,5 +102,5 @@ def hmac_func():
 if __name__ == "__main__":
     # hash_demo()
     # hash_func()
-    hmac_demo2()
-    # hmac_func()
+    #hmac_demo2()
+    hmac_func()
